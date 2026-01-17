@@ -1,4 +1,3 @@
-import { MeshGradient } from "@paper-design/shaders-react"
 import { useEffect, useState } from "react"
 import WordRotate from "./word-rotate"
 import { Magnetic } from "@/components/ui/magnetic"
@@ -9,7 +8,7 @@ interface HeroSectionProps {
     description?: string
     buttonText?: string
     onButtonClick?: () => void
-    colors?: string[]
+    colors?: string[] // Kept for compatibility, but mapped to gradients
     distortion?: number
     swirl?: number
     speed?: number
@@ -24,6 +23,10 @@ interface HeroSectionProps {
     fontWeight?: number
 }
 
+/*
+ * STATIC BACKGROUND IMPLEMENTATION
+ * Replaces heavy shaders with pure CSS gradients for maximum performance.
+ */
 export function HeroSection({
     title = "Intelligent AI Agents for",
     highlightText = "Smart Brands",
@@ -31,10 +34,6 @@ export function HeroSection({
     buttonText = "Join Waitlist",
     onButtonClick,
     colors = ["#72b9bb", "#b5d9d9", "#ffd1bd", "#ffebe0", "#8cc5b8", "#dbf4a4"],
-    distortion = 0.8,
-    swirl = 0.6,
-    speed = 0.42,
-    offsetX = 0.08,
     className = "",
     titleClassName = "",
     descriptionClassName = "",
@@ -44,19 +43,10 @@ export function HeroSection({
     fontFamily = "var(--font-outfit)",
     fontWeight = 600,
 }: HeroSectionProps) {
-    const [dimensions, setDimensions] = useState({ width: 1920, height: 1080 })
     const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
         setMounted(true)
-        const update = () =>
-            setDimensions({
-                width: window.innerWidth,
-                height: window.innerHeight,
-            })
-        update()
-        window.addEventListener("resize", update)
-        return () => window.removeEventListener("resize", update)
     }, [])
 
     const handleButtonClick = () => {
@@ -65,25 +55,37 @@ export function HeroSection({
         }
     }
 
+    // Generate a static complex gradient from the colors prop
+    // This mimics the "mesh" look by layering radial gradients
+    const bgStyle = {
+        background: `
+            radial-gradient(at 0% 0%, ${colors[0] || '#000'} 0px, transparent 50%),
+            radial-gradient(at 100% 0%, ${colors[1] || '#000'} 0px, transparent 50%),
+            radial-gradient(at 100% 100%, ${colors[2] || '#000'} 0px, transparent 50%),
+            radial-gradient(at 0% 100%, ${colors[3] || '#000'} 0px, transparent 50%),
+            radial-gradient(at 50% 50%, ${colors[4] || '#000'} 0px, transparent 50%),
+            ${colors[5] ? `radial-gradient(at 80% 50%, ${colors[5]} 0px, transparent 50%)` : ''}
+        `,
+        backgroundColor: colors[0] || '#000', // Fallback base color
+        filter: 'blur(80px)', // The secret sauce for the "mesh" look
+        opacity: 0.8
+    }
+
     return (
         <section className={`relative w-full min-h-screen overflow-hidden flex items-center justify-center ${className}`}>
-            <div className="fixed inset-0 w-screen h-screen">
-                {mounted && (
-                    <>
-                        <MeshGradient
-                            width={dimensions.width}
-                            height={dimensions.height}
-                            colors={colors}
-                            distortion={distortion}
-                            swirl={swirl}
-                            grainMixer={0}
-                            grainOverlay={0}
-                            speed={speed}
-                            offsetX={offsetX}
-                        />
-                        <div className={`absolute inset-0 pointer-events-none ${veilOpacity}`} />
-                    </>
-                )}
+            {/* STATIC CSS GRADIENT BACKGROUND */}
+            <div className="fixed inset-0 w-screen h-screen -z-10 overflow-hidden">
+                {/* Base Dark/Light layer */}
+                <div className="absolute inset-0 bg-background" />
+
+                {/* The Gradient Mesh */}
+                <div 
+                    className="absolute inset-[-50%] w-[200%] h-[200%]" 
+                    style={bgStyle}
+                />
+                
+                {/* Overlay Veil for Text Readability */}
+                <div className={`absolute inset-0 pointer-events-none ${veilOpacity}`} />
             </div>
 
             <div className={`relative z-10 ${maxWidth} mx-auto px-6 w-full`}>

@@ -21,7 +21,14 @@ export default function Navbar() {
     return (
         <>
             {/* Desktop: Floating Pill (Hidden on Mobile) */}
-            <header className="fixed top-6 left-0 right-0 z-50 justify-center items-center pointer-events-none hidden md:flex">
+            <header className="fixed top-6 left-0 right-0 z-50 flex justify-center items-center pointer-events-none hidden md:flex h-14">
+                {/* Desktop Logo - Centered vertically relative to header */}
+                <div className="absolute left-8 pointer-events-auto flex items-center h-full">
+                    <Link href="/" className="text-xl font-bold tracking-tight text-white/90 hover:text-white transition-colors font-display">
+                        AdCoach
+                    </Link>
+                </div>
+
                 <nav className="pointer-events-auto flex items-center gap-1 bg-black/50 border border-white/10 rounded-full p-1 shadow-lg backdrop-blur-xl">
                     {navLinks.map((link) => {
                         const isActive = pathname === link.href;
@@ -49,15 +56,8 @@ export default function Navbar() {
                     })}
                 </nav>
 
-                {/* Desktop Logo */}
-                <div className="absolute left-8 top-2 pointer-events-auto">
-                    <Link href="/" className="text-xl font-bold tracking-tight text-white/90 hover:text-white transition-colors font-display">
-                        AdCoach
-                    </Link>
-                </div>
-
-                {/* Desktop Get Started */}
-                <div className="absolute right-8 top-0 pointer-events-auto">
+                {/* Desktop Get Started - Centered vertically relative to header */}
+                <div className="absolute right-8 pointer-events-auto flex items-center h-full">
                     <Link
                         href="/pricing"
                         className="inline-flex h-10 items-center justify-center rounded-full bg-white px-6 font-medium text-neutral-900 transition-colors hover:bg-neutral-200"
