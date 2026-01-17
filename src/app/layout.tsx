@@ -4,7 +4,7 @@ import "./globals.css";
 import { Providers } from "@/components/layout/Providers";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import Background3D from "@/components/ui/Background3D";
+
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import { EasterEggListener } from "@/components/ui/easter-egg-listener";
 import SmoothScrollProvider from "@/components/providers/smooth-scroll-provider";
@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     "The platform that analyzes your Meta, Google, and TikTok ads in real-time and automatically generates high-converting video creatives.",
 };
 
+import { CookieConsent } from "@/components/ui/cookie-consent";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,7 +32,6 @@ export default function RootLayout({
       >
         <Providers>
           <SmoothScrollProvider>
-            <Background3D />
             <EasterEggListener />
             <Navbar />
             <main className="flex-grow pt-24 min-h-screen z-10 relative">
@@ -38,6 +39,7 @@ export default function RootLayout({
             </main>
             <Footer />
             <ScrollToTop />
+            <CookieConsent />
           </SmoothScrollProvider>
         </Providers>
       </body>

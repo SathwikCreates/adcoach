@@ -36,7 +36,7 @@ export default function Home() {
       */}
       <HeroSection
         title="Intelligent AI Agents for"
-        highlightText="Ad Performance, Meta Ads, Search Ads, TikTok Ads"
+        highlightText={["Ad Performance", "Meta Ads", "Search Ads", "TikTok Ads"]}
         description="Stop feeling stupid about ads. Start feeling in control. An AI platform that connects to your ads, analyzes performance, and tells you exactly what to fix."
         buttonText="Get Started"
         onButtonClick={handleGetStarted}

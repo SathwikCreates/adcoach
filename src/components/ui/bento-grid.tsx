@@ -14,7 +14,7 @@ export const BentoGrid = ({
     return (
         <div
             className={cn(
-                "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto ",
+                "grid md:auto-rows-[22rem] grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto ",
                 className
             )}
         >
@@ -64,33 +64,35 @@ export const BentoGridItem = ({
         <div
             ref={ref}
             className={cn(
-                "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black/40 dark:border-white/10 bg-white/5 border border-white/10 backdrop-blur-md justify-between flex flex-col space-y-4 relative overflow-hidden min-h-[22rem]",
+                "row-span-1 rounded-3xl group/bento hover:shadow-2xl transition duration-300 shadow-none p-6 bg-zinc-900 border border-white/10 flex flex-col space-y-4 relative overflow-hidden min-h-[22rem]",
                 className
             )}
             onMouseMove={handleMouseMove}
         >
             <motion.div
-                className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover/bento:opacity-100 z-0"
+                className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover/bento:opacity-100 z-0"
                 style={{
                     background: useMotionTemplate`
                         radial-gradient(
-                          650px circle at ${mouseX}px ${mouseY}px,
-                          rgba(255,255,255,0.1),
+                          800px circle at ${mouseX}px ${mouseY}px,
+                          rgba(255,255,255,0.05),
                           transparent 80%
                         )
                     `,
                 }}
             />
-            <div className="relative z-10 h-full flex flex-col justify-between">
-                <motion.div style={{ y: headerY }} className="transition-transform duration-200 ease-out">
+            <div className="relative z-10 h-full flex flex-col">
+                <motion.div style={{ y: headerY }} className="transition-transform duration-200 ease-out flex-1">
                     {header}
                 </motion.div>
-                <div className="group-hover/bento:translate-x-2 transition duration-200 mt-4 relative z-20 bg-black/20 p-2 rounded-lg backdrop-blur-sm border border-white/5">
-                    {icon}
-                    <div className="font-heading font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2 font-display">
+                <div className="transition duration-200 mt-6 relative z-20">
+                    <div className="mb-2 w-fit rounded-lg p-2 bg-white/5 border border-white/5 text-zinc-300">
+                        {icon}
+                    </div>
+                    <div className="font-heading font-semibold text-zinc-100 text-lg mb-2 mt-2 font-display tracking-tight">
                         {title}
                     </div>
-                    <div className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300 font-sans">
+                    <div className="font-sans font-normal text-zinc-400 text-sm leading-relaxed">
                         {description}
                     </div>
                 </div>
