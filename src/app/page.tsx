@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { HeroSection } from "@/components/ui/hero-section-with-smooth-bg-shader";
 import WhisperText from "@/components/ui/whisper-text";
 import { Button } from "@/components/ui/button";
@@ -15,8 +16,18 @@ import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { TextReveal } from "@/components/ui/text-reveal";
 import { Magnetic } from "@/components/ui/magnetic";
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { WaitlistModal } from "@/components/ui/waitlist-modal";
+
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+
+  const handleGetStarted = () => {
+    router.push("/pricing");
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* 
@@ -28,9 +39,10 @@ export default function Home() {
         highlightText="Ad Performance, Meta Ads, Search Ads, TikTok Ads"
         description="Stop feeling stupid about ads. Start feeling in control. An AI platform that connects to your ads, analyzes performance, and tells you exactly what to fix."
         buttonText="Get Started"
-        // Using a sophisticated, slightly more muted/premium palette
-        colors={["#FF6B6B", "#4ECDC4", "#45B7D1", "#F7FFF7", "#FFE66D", "#FF6B6B"]}
-        speed={0.4}
+        onButtonClick={handleGetStarted}
+        // Neural Abyss: Deep, Addictive, High-Contrast
+        colors={["#030712", "#1e1b4b", "#312e81", "#4c1d95", "#831843", "#be185d"]}
+        speed={0.25}
       />
 
       {/* Trusted By & Stats Section */}
@@ -148,7 +160,7 @@ export default function Home() {
           </p>
           <div className="flex justify-center">
             <Magnetic>
-              <ShimmerButton onClick={triggerConfetti} className="shadow-2xl">
+              <ShimmerButton onClick={() => setIsWaitlistOpen(true)} className="shadow-2xl">
                 <span className="flex items-center gap-2 whitespace-nowrap">
                   Join the Waitlist <ArrowRight className="h-4 w-4" />
                 </span>
@@ -158,6 +170,7 @@ export default function Home() {
         </div>
       </section>
 
+      <WaitlistModal isOpen={isWaitlistOpen} onClose={() => setIsWaitlistOpen(false)} />
     </div>
   );
 }

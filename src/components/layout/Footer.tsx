@@ -3,15 +3,15 @@ import { Check } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="border-t border-neutral-200 dark:border-white/10 bg-white dark:bg-black py-16 relative z-10">
+        <footer className="border-t border-white/10 bg-black py-16 relative z-10">
             <div className="max-w-7xl mx-auto px-6 grid gap-12 md:grid-cols-4">
                 <div className="md:col-span-2">
                     <div className="flex items-center gap-2 mb-6">
-                        <span className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white font-display">
+                        <span className="text-2xl font-bold tracking-tight text-white font-display">
                             AdCoach
                         </span>
                     </div>
-                    <p className="text-sm text-neutral-500 dark:text-white/50 max-w-sm leading-relaxed mb-6">
+                    <p className="text-sm text-white/50 max-w-sm leading-relaxed mb-6">
                         The premier AI advertising platform for high-growth brands.
                         Optimizing ROI across all major global ad networks.
                     </p>
@@ -53,10 +53,10 @@ export default function Footer() {
                     </div>
                 </div>
                 <div>
-                    <h4 className="text-sm font-bold text-neutral-900 dark:text-white mb-6 uppercase tracking-wider">
+                    <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider">
                         Product
                     </h4>
-                    <ul className="space-y-3 text-sm text-neutral-500 dark:text-white/60">
+                    <ul className="space-y-3 text-sm text-white/60">
                         <li>
                             <Link href="/" className="hover:text-emerald-500 transition-colors">
                                 Platform
@@ -82,10 +82,10 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div>
-                    <h4 className="text-sm font-bold text-neutral-900 dark:text-white mb-6 uppercase tracking-wider">
+                    <h4 className="text-sm font-bold text-white mb-6 uppercase tracking-wider">
                         Legal
                     </h4>
-                    <ul className="space-y-3 text-sm text-neutral-500 dark:text-white/60">
+                    <ul className="space-y-3 text-sm text-white/60">
                         <li>
                             <a href="#" className="hover:text-emerald-500 transition-colors">
                                 Privacy Policy
@@ -104,8 +104,8 @@ export default function Footer() {
                     </ul>
                 </div>
             </div>
-            <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-neutral-200 dark:border-white/10">
-                <p className="text-xs text-center text-neutral-400 dark:text-white/30">
+            <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10">
+                <p className="text-xs text-center text-white/30">
                     © 2025 AdCoach Inc. Built with AI.
                 </p>
             </div>

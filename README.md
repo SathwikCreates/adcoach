@@ -1,80 +1,59 @@
-# AdCoach - The Future of AI Advertising 🚀
+# AdCoach - AI Advertising Intelligence 🧠
 
-![AdCoach Banner](public/images/dashboard-mockup.png)
+![AdCoach](https://img.shields.io/badge/Status-Beta-blue?style=for-the-badge) ![NextJS](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js) ![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)
 
-**AdCoach** is a next-generation AI advertising platform designed for high-growth brands. It combines **premium aesthetics**, **autonomous agents**, and **dynamic design** to create an immersive user experience.
+**AdCoach** is a premium, AI-driven advertising platform designed for high-growth brands. It replaces complex ad manager dashboards with autonomous agents that analyze, fix, and scale campaigns across Meta, Google, and TikTok.
 
-Built with **Next.js 16**, **Tailwind CSS**, and **Framer Motion**, AdCoach treats the user interface as a first-class feature, not just a wrapper.
+## ✨ Features
 
----
-
-## ✨ Key Features
-
-### 🎨 Premium Visual Experience
--   **Dynamic Shader Backgrounds**: Custom-built WebGL shaders that shift themes based on page context (Midnight Lavender for Auth, Hypnotic Ocean for Pricing).
--   **Glassmorphism Everywhere**: High-quality frosted glass effects (`backdrop-blur-md`) grounded by a "Premium Dark" aesthetic.
--   **Bento Grid Layout**: A modern, asymmetric grid layout for the "Features" and "Home" sections, powered by **Spotlight** hover effects.
--   **Apple-Level Animations**: Smooth scrolling (Lenis), parallax depth, and magnetic button interactions.
-
-### 🛡️ Secure & Smart Authentication
--   **Google OAuth Integration**: One-click "Continue with Google" sign-in using **NextAuth.js**.
--   **Smart Email Validation**: Strictly filters out suspicious/temporary domains while allowing all professional and legitimate email providers.
--   **Zod Schema Validation**: Robust form handling for Login, Signup, and Contact forms.
-
-### ⚡ Interactive Components
--   **Pricing Modal**: A portal-based, z-index-proof modal that overlays the entire app for a focused checkout experience.
--   **Easter Eggs**: Try entering the **Konami Code** (`↑ ↑ ↓ ↓ ← → ← → B A`) or clicking "Join Waitlist" for a surprise!
--   **Data Visualization**: Custom-built abstract UI graphics (`GraphicDashboard`, `GraphicVideo`) to represent features without generic icons.
-
----
+- **Neural Abyss Design**: A high-contrast, deep-dark aesthetic optimized for focus and low eye strain.
+- **Autonomous Agents**: AI "Coaches" that analyze ROI and suggest plain-english fixes.
+- **Unified Dashboard**: View Meta, Google, and TikTok performance in a single Bento-grid view.
+- **Performance First**: Optimized with `lenis` for buttery smooth scrolling and lightweight WebGL shaders.
+- **Waitlist Access**: Integrated email capture with gamified entry (confetti celebration).
 
 ## 🛠️ Tech Stack
 
--   **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
--   **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
--   **UI Library**: [Shadcn UI](https://ui.shadcn.com/) (Radix Primitives)
--   **Animations**: [Framer Motion](https://www.framer.com/motion/) + [GSAP](https://gsap.com/)
--   **Auth**: [NextAuth.js](https://next-auth.js.org/)
--   **Forms**: React Hook Form + Zod
--   **Effects**: `canvas-confetti`, `three.js` (for Shaders)
-
----
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS, Framer Motion
+- **UI Components**: Custom "Glassmorphism" system, Radix UI primitives
+- **Animation**: React-Lenis (Scroll), Canvas Confetti, Shaders
+- **Language**: TypeScript
 
 ## 🚀 Getting Started
 
-1.  **Clone the repository:**
+1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/SathwikCreates/clean-saas-page.git
-    cd clean-saas-page
+    git clone https://github.com/SathwikCreates/adcoach.git
+    cd adcoach
     ```
 
-2.  **Install dependencies:**
+2.  **Install dependencies**:
     ```bash
-    npm install --legacy-peer-deps
+    npm install
+    # or
+    yarn install
     ```
 
-3.  **Set up Environment Variables:**
-    Create a `.env.local` file in the root directory:
-    ```env
-    NEXTAUTH_URL=http://localhost:3000
-    NEXTAUTH_SECRET=your_generated_secret_here
-    GOOGLE_CLIENT_ID=your_google_client_id
-    GOOGLE_CLIENT_SECRET=your_google_client_secret
-    ```
-
-4.  **Run the development server:**
+3.  **Run the development server**:
     ```bash
     npm run dev
     ```
 
-5.  Open [http://localhost:3000](http://localhost:3000) to see the app live.
+4.  **Open in browser**:
+    Navigate to [http://localhost:3000](http://localhost:3000).
 
----
+## 🎨 Visual Identity
+
+- **Fonts**: `Outfit` (Headings), `Plus Jakarta Sans` (Body).
+- **Colors**:
+    - *Background*: `#030712` (Neural Black)
+    - *Accents*: `#C026D3` (Neon Magenta), `#7C3AED` (Deep Violet)
 
 ## 🤝 Contributing
 
-We welcome contributions! Please feel free to submit a Pull Request.
+This project is currently in **Private Beta**. Pull requests are welcome for authorized collaborators.
 
 ---
 
-*Built with ❤️ by AI & Human Collaboration.*
+*Built with ❤️ and AI by AdCoach Team.*
