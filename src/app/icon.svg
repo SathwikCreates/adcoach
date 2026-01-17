@@ -1,45 +1,38 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<!-- Background: Deep Space -->
-<linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
-<stop offset="0" stop-color="#0f172a"/>
-<stop offset="1" stop-color="#020617"/>
-</linearGradient>
-
-<!-- The Signature Brand Gradient (Lavender -> Ocean -> Cyan) -->
-<linearGradient id="prism" x1="100" y1="100" x2="400" y2="400" gradientUnits="userSpaceOnUse">
-<stop offset="0" stop-color="#d946ef" /> <!-- Pink/Magenta -->
-<stop offset="0.5" stop-color="#7c3aed"/> <!-- Deep Purple -->
+<!-- The Brand Gradient: "Midnight Lavender" meets "Hypnotic Ocean" -->
+<!-- Complex diagonal gradient for a rich, premium feel -->
+<linearGradient id="brandGradient" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#db2777"/> <!-- Pink -->
+<stop offset="0.3" stop-color="#7c3aed"/> <!-- Purple -->
+<stop offset="0.7" stop-color="#2563eb"/> <!-- Blue -->
 <stop offset="1" stop-color="#06b6d4"/> <!-- Cyan -->
 </linearGradient>
 
-<!-- Glass Reflection -->
-<linearGradient id="glass" x1="256" y1="0" x2="256" y2="512" gradientUnits="userSpaceOnUse">
-<stop offset="0" stop-color="white" stop-opacity="0.4"/>
-<stop offset="0.5" stop-color="white" stop-opacity="0"/>
-<stop offset="1" stop-color="white" stop-opacity="0.1"/>
-</linearGradient>
+<!-- Soft inner light to give volume -->
+<radialGradient id="shimmer" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(100 100) rotate(90) scale(400)">
+<stop stop-color="white" stop-opacity="0.3"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</radialGradient>
 
-<filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-<feGaussianBlur stdDeviation="20" result="blur"/>
-<feComposite in="SourceGraphic" in2="blur" operator="over"/>
+<filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+<feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.1"/>
+</filter>
 </filter>
 </defs>
 
-<!-- Container -->
-<rect width="512" height="512" rx="128" fill="url(#bg)"/>
+<!-- Icon Base: Full Gradient Fill (No Black) -->
+<rect width="512" height="512" rx="128" fill="url(#brandGradient)"/>
 
-<!-- The Abstract "A" / Infinity Loop / Prism -->
-<!-- A continuous folded ribbon shape -->
-<path d="M256 128 C160 128 128 256 192 320 L256 384 L320 320 C384 256 352 128 256 128 Z" 
-fill="url(#prism)" 
-filter="url(#glow)"/>
+<!-- Top Left Highlight for gloss -->
+<rect width="512" height="512" rx="128" fill="url(#shimmer)"/>
 
-<!-- Inner Cutout to create the "Loop" or Eye effect -->
-<path d="M256 192 C220 192 220 230 256 266 C292 230 292 192 256 192 Z" fill="#020617"/>
-
-<!-- Glass Overlay for Polish -->
-<path d="M256 128 C160 128 128 256 192 320 L256 384 L320 320 C384 256 352 128 256 128 Z" 
-fill="url(#glass)"/>
+<!-- The Symbol: Pure White, Minimal "A" / Upward Arrow -->
+<!-- Centered, geometric, bold -->
+<g filter="url(#softShadow)">
+<path d="M256 112L400 384H328L256 240L184 384H112L256 112Z" fill="white"/>
+<!-- The cutout/crossbar element to make it an 'A' but modern -->
+<path d="M256 240L300 328H212L256 240Z" fill="url(#brandGradient)"/>
+</g>
 
 </svg>
