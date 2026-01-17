@@ -1,0 +1,178 @@
+
+> adcoach-nextjs@0.1.0 lint
+> eslint
+
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/app/contact/page.tsx
+  83:67  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  97:68  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/app/forgot-password/page.tsx
+   76:52  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   90:73  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  102:37  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/app/login/page.tsx
+  142:32  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/app/page.tsx
+   6:10  warning  'Button' is defined but never used           @typescript-eslint/no-unused-vars
+  11:10  warning  'triggerConfetti' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/home/Hero.tsx
+  2:10  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+  2:22  warning  'Play' is defined but never used        @typescript-eslint/no-unused-vars
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/home/PricingPreview.tsx
+  1:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/layout/Footer.tsx
+  2:10  warning  'Check' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/layout/Providers.tsx
+  10:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/layout/Providers.tsx:10:9
+   8 |
+   9 |     useEffect(() => {
+> 10 |         setMounted(true);
+     |         ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  11 |     }, []);
+  12 |
+  13 |     if (!mounted) {  react-hooks/set-state-in-effect
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/providers/smooth-scroll-provider.tsx
+  16:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/Background3D.tsx
+  125:23  error    Unexpected any. Specify a different type                                                                  @typescript-eslint/no-explicit-any
+  137:8   warning  React Hook useEffect has a missing dependency: 'theme'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  142:52  error    Unexpected any. Specify a different type                                                                  @typescript-eslint/no-explicit-any
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/animated-counter.tsx
+  2:29  warning  'useState' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/easter-egg-listener.tsx
+   8:12  warning  'konami' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  30:21  error    Error: Cannot access variable before it is declared
+
+`triggerEasterEgg` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/easter-egg-listener.tsx:30:21
+  28 |                 const next = [...prev, key].slice(-10);
+  29 |                 if (JSON.stringify(next) === JSON.stringify(SEQUENCE)) {
+> 30 |                     triggerEasterEgg();
+     |                     ^^^^^^^^^^^^^^^^ `triggerEasterEgg` accessed before it is declared
+  31 |                     return [];
+  32 |                 }
+  33 |                 return next;
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/easter-egg-listener.tsx:41:5
+  39 |     }, []);
+  40 |
+> 41 |     const triggerEasterEgg = () => {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |         // 1. Fire massive confetti
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 43 |         const duration = 5 * 1000;
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 71 |         setTimeout(() => setShowMatrix(false), 5000);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 72 |     };
+     | ^^^^^^^ `triggerEasterEgg` is declared here
+  73 |
+  74 |     return (
+  75 |         <AnimatePresence>  react-hooks/immutability
+  39:8   warning  React Hook useEffect has a missing dependency: 'SEQUENCE'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/exhaustive-deps
+  49:25  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @typescript-eslint/no-explicit-any
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/hero-section-with-smooth-bg-shader.tsx
+  51:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/hero-section-with-smooth-bg-shader.tsx:51:9
+  49 |
+  50 |     useEffect(() => {
+> 51 |         setMounted(true)
+     |         ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  52 |         const update = () =>
+  53 |             setDimensions({
+  54 |                 width: window.innerWidth,  react-hooks/set-state-in-effect
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/infinite-moving-logos.tsx
+  26:9   error    Error: Cannot access variable before it is declared
+
+`addAnimation` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/infinite-moving-logos.tsx:26:9
+  24 |
+  25 |     useEffect(() => {
+> 26 |         addAnimation();
+     |         ^^^^^^^^^^^^ `addAnimation` accessed before it is declared
+  27 |     }, []);
+  28 |
+  29 |     const [start, setStart] = useState(false);
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/infinite-moving-logos.tsx:31:5
+  29 |     const [start, setStart] = useState(false);
+  30 |
+> 31 |     function addAnimation() {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+> 32 |         if (containerRef.current && scrollerRef.current) {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 33 |             const scrollerContent = Array.from(scrollerRef.current.children);
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 45 |         }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 46 |     }
+     | ^^^^^^ `addAnimation` is declared here
+  47 |
+  48 |     const getDirection = () => {
+  49 |         if (containerRef.current) {  react-hooks/immutability
+  27:8   warning  React Hook useEffect has a missing dependency: 'addAnimation'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/exhaustive-deps
+  86:35  warning  'idx' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/input.tsx
+  5:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/magnetic.tsx
+  3:45  warning  'useTransform' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/textarea.tsx
+  5:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/waitlist-modal.tsx
+   78:95  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   80:74  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+  146:9   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/sathwik/.gemini/antigravity/scratch/adcoach/adcoach-nextjs/src/components/ui/waitlist-modal.tsx:146:9
+  144 |
+  145 |     useEffect(() => {
+> 146 |         setMounted(true);
+      |         ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  147 |         return () => setMounted(false);
+  148 |     }, []);
+  149 |  react-hooks/set-state-in-effect
+
+✖ 32 problems (19 errors, 13 warnings)
+
