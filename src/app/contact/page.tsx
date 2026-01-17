@@ -57,7 +57,7 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden pt-24 pb-12 px-4 gap-8 lg:gap-16">
+        <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Background Shader - Reusing styling from Home for consistency */}
             <div className="absolute inset-0 z-0">
                 <HeroSection
@@ -74,7 +74,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="relative z-10 w-full max-w-lg lg:max-w-xl p-0 lg:p-4 order-1 lg:order-2"
+                className="relative z-10 w-full max-w-lg mx-auto p-4"
             >
                 <div className="bg-black/30 backdrop-blur-3xl border border-white/10 rounded-3xl p-8 shadow-2xl ring-1 ring-white/5">
                     <div className="text-center mb-8">
@@ -188,7 +188,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                className="relative z-10 w-full max-w-lg lg:max-w-xl px-0 lg:px-4 order-2 lg:order-1 mt-0"
+                className="relative z-10 w-full max-w-2xl mx-auto px-4 pb-24 mt-8"
             >
                 <h2 className="text-2xl font-bold text-white mb-8 text-center tracking-tight">Frequently Asked Questions</h2>
                 <Accordion type="single" collapsible className="w-full space-y-4">
