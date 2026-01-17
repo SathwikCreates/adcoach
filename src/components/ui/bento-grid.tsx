@@ -64,7 +64,7 @@ export const BentoGridItem = ({
         <div
             ref={ref}
             className={cn(
-                "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black/40 dark:border-white/10 bg-white/5 border border-white/10 backdrop-blur-md justify-between flex flex-col space-y-4 relative overflow-hidden",
+                "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black/40 dark:border-white/10 bg-white/5 border border-white/10 backdrop-blur-md justify-between flex flex-col space-y-4 relative overflow-hidden min-h-[22rem]",
                 className
             )}
             onMouseMove={handleMouseMove}

@@ -90,13 +90,13 @@ export function HeroSection({
                 <div className="text-center">
                     <div className="flex flex-col items-center justify-center mb-6">
                         <h1
-                            className={`font-bold text-foreground text-balance text-4xl sm:text-5xl md:text-6xl xl:text-[80px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-[1.1] lg:text-7xl ${titleClassName}`}
+                            className={`font-bold text-foreground text-balance text-3xl sm:text-5xl md:text-6xl xl:text-[80px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-[1.1] lg:text-7xl ${titleClassName}`}
                             style={{ fontFamily, fontWeight }}
                         >
                             {title}
                         </h1>
                         <WordRotate
-                            className={`font-bold text-primary text-4xl sm:text-5xl md:text-6xl xl:text-[80px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-[1.1] ${titleClassName}`}
+                            className={`font-bold text-primary text-3xl sm:text-5xl md:text-6xl xl:text-[80px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-[1.1] ${titleClassName}`}
                             words={highlightText.split(",")}
                         />
                     </div>

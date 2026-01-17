@@ -144,7 +144,7 @@ export default function PricingPage() {
                     <div className="relative flex items-center bg-white/5 border border-white/10 rounded-full p-1 backdrop-blur-md">
                         <button
                             onClick={() => setIsYearly(false)}
-                            className={cn("relative z-10 px-8 py-2.5 rounded-full text-sm font-semibold transition-colors duration-300", !isYearly ? "text-black" : "text-white/50 hover:text-white/80")}
+                            className={cn("relative z-10 px-4 md:px-8 py-2.5 rounded-full text-sm font-semibold transition-colors duration-300", !isYearly ? "text-black" : "text-white/50 hover:text-white/80")}
                         >
                             Monthly
                             {!isYearly && (
@@ -157,7 +157,7 @@ export default function PricingPage() {
                         </button>
                         <button
                             onClick={() => setIsYearly(true)}
-                            className={cn("relative z-10 px-8 py-2.5 rounded-full text-sm font-semibold transition-colors duration-300", isYearly ? "text-black" : "text-white/50 hover:text-white/80")}
+                            className={cn("relative z-10 px-4 md:px-8 py-2.5 rounded-full text-sm font-semibold transition-colors duration-300", isYearly ? "text-black" : "text-white/50 hover:text-white/80")}
                         >
                             Yearly <span className={cn("ml-1 text-xs font-bold", isYearly ? "text-black/60" : "text-white/60")}>-20%</span>
                             {isYearly && (
@@ -171,7 +171,7 @@ export default function PricingPage() {
                     </div>
                 </motion.div>
 
-                <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
                     {PLANS.map((plan) => (
                         <motion.div
                             key={plan.id}
