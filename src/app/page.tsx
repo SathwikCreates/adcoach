@@ -18,6 +18,7 @@ import { Magnetic } from "@/components/ui/magnetic";
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { WaitlistModal } from "@/components/ui/waitlist-modal";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -166,6 +167,21 @@ export default function Home() {
                 </span>
               </ShimmerButton>
             </Magnetic>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials CTA */}
+      <section className="py-24 relative z-10 overflow-hidden">
+        <div className="container mx-auto px-6 relative z-20 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+            Wanna read success stories?
+          </h2>
+          <div className="flex justify-center">
+            <Link href="/testimonials" className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-white px-8 font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.7)]">
+              <span className="mr-2">Success Stories</span>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </section>
